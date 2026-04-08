@@ -9,6 +9,11 @@
 .container2 {
 	background-color: #DDDDDD;
 }
+
+.container2 >table{
+	margin: 5px;
+	block-size: auto;
+}
 .container3 {
 	background-color: #33FFFF;
 	padding: 15px;

@@ -2,9 +2,10 @@ div#container1{
 	background-color: #0099ff;
 	color: white;
 	overflow: hidden;
-	block-size: auto;
+	block-size: 80px;
 	padding: 10px;
 	display: flex;
+	border-radius: 5px;
 }
 .logo>img{
 	border-radius: 100%;
@@ -24,7 +25,7 @@ div#container1{
 .block1> button{
 	border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -33,8 +34,23 @@ div#container1{
   cursor: pointer;
   background-color: #33CCFF;
   border-radius: 10px;
+  transition-duration: 0.5s;
 }
 button:hover
 {
 	background-color: #FFCC99;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+a{
+	text-decoration: none;
+}
+
+.TT> b, p{
+	display: flex;
+	flex:1;
+	margin-left: 50px;
+	margin-top: 10px;
+	font-size: 20px;
+
 }
