@@ -1,0 +1,40 @@
+div#container1{
+	background-color: #0099ff;
+	color: white;
+	overflow: hidden;
+	block-size: auto;
+	padding: 10px;
+	display: flex;
+}
+.logo>img{
+	border-radius: 100%;
+	height: 80px;
+	width: 80px;
+}
+
+
+
+.block1 {
+	display:flex;
+	flex-wrap: wrap;
+	flex:1;
+	justify-content: right;
+	
+}
+.block1> button{
+	border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #33CCFF;
+  border-radius: 10px;
+}
+button:hover
+{
+	background-color: #FFCC99;
+}
