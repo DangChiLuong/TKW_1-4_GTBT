@@ -1,11 +1,73 @@
-<!DOCTYPE HTML>
-<HMTL lang ="vi">
+<!DOCTYPE html>
+<html lang="vi">
     <head>
         <title>Đăng ký</title>
-        <meta charset = "UTF - 8">
-        <link rel="stylesheet" href ="#">
+        <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style3.css">
     </head>
-    <body>
-        
-    </body>
-</HMTL>
+    <body class="signup-body">
+        <div class="signup-container">
+            <div class="signup-card">
+                <h2 class="title">Đăng ký tài khoản</h2>
+                <form id="frSignup" class="signup-form">
+                    <div class="form-grid">
+                    <div class="form-group">
+                        <label for="txtUser" spellcheck="false">Họ và tên:</label>
+                        <input type="text" id="txtUser" name="txtUser" required spellcheck="false">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentID" spellcheck="false">Mã số sinh viên:</label>
+                        <input type="text" id="studentID" name="studentID" required spellcheck="false">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="classID" spellcheck="false">Lớp:</label>
+                        <select id="classID" name="classID" required spellcheck="false"> /*Không được để trống*/
+                            <option value="">Chọn lớp</option>
+                            <option value="DA24TTA">DA24TTA</option>
+                            <option value="DA24TTB">DA24TTB</option>
+                            <option value="DA24TTC">DA24TTC</option>
+                            <option value="DA24TTD">DA24TTD</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pass" spellcheck="false">Mật khẩu:</label>
+                        <input type="password" id="pass" name="pass" minlength="6" required spellcheck="false">
+                </div>
+
+                <div class="form-group">
+                    <label for="passConfirm" spellcheck="false">Xác nhận mật khẩu:</label>
+                    <input type="password" id="passConfirm" name="passConfirm" minlength="6" required spellcheck="false">
+                </div>
+
+                <div class="form-group">
+                    <label spellcheck="false">Giới tính:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="Nam" required> Nam</label>
+                        <label><input type="radio" name="gender" value="Nữ" required> Nữ</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label spellcheck="false">Điểm mạnh:</label>
+                        <div class="checkbox-group">
+                        <label><input type="checkbox" name="skills" value="Thiết kế giao diện"> Thiết kế giao diện</label>
+                        <label><input type="checkbox" name="skills" value="Phân tích hệ thống"> Phân tích hệ thống</label>
+                        <label><input type="checkbox" name="skills" value="Xây dựng BackEnd"> Xây dựng BackEnd</label>
+                        <label><input type="checkbox" name="skills" value="Xây dựng FrontEnd"> Xây dựng FrontEnd</label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="sigUp">Đăng ký</button>
+                </div>
+              
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
