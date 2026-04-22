@@ -1,0 +1,16 @@
+div#TD 
+{
+    background-color: antiquewhite;
+}
+
+div#container 
+{
+    background-color: aquamarine;
+    padding: 5px;
+}
+
+*{
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+}

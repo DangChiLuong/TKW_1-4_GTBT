@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Bảng cửu chương</title>
+        <meta charset = "utf - 8">
+        <link rel = "stylesheet" href = "../css/style5.css">
+    </head>
+
+    <body>
+       <form id="forminBcc">
+        <div id="TD">
+             <h2>Bảng cửu chương</h2>
+        </div>
+       
+        <div id ="container">
+        <div id ="Value">
+            <label>Nhập số từ 2 - 9: </label>
+            <input type="number" id ="num" name="num" max="9" min="2">
+            <input type ="button" onclick="inBcc()" value ="In">
+                
+        </div>
+        <div id ="kq">
+        </div>
+        </div>
+       </form>
+
+       <script>
+        function inBcc()
+        {
+            const myForm = document.forms["forminBcc"];
+            const myNumber = myForm.elements[0];
+
+            let num = parseInt(myNumber.value);
+            let kq ="";
+            for (let i = 1; i <= 10; i++)
+            {
+                kq = kq + num + " x " + i + " = " + (num * i) + "<br>";
+            }
+
+            document.getElementById("kq").innerHTML = kq;
+        }
+       </script>
+
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Hóa đơn thanh  toán</title>
+        <meta charset = "utf - 8">
+        <link rel = "stylesheet" href = "../css/style4.css">
+    </head>
+
+    <body>
+        <div id = container>
+        <div id="TD">
+            <h2>Hóa đơn thanh toán</h2>
+        </div>
+        <div>
+            <table border="2">
+                <tr>
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>A</td>
+                    <td class = "soluong">3</td>
+                    <td class ="dongia">1000</td>
+                    <td class = "thanhtien"></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>B</td>
+                    <td class = "soluong">4</td>
+                    <td class ="dongia">2000</td>
+                    <td class = "thanhtien" ></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>C</td>
+                    <td class = "soluong">5</td>
+                    <td class ="dongia">4000</td>
+                    <td class = "thanhtien"></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>D</td>
+                    <td class = "soluong">2</td>
+                    <td class ="dongia">5000</td>
+                    <td class = "thanhtien"></td>
+                </tr>
+
+                <tr>
+                    <th colspan = "3">Tổng thanh toán</th>
+                    <td colspan = "2" id = "tong"></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        <script>
+            
+            const soLuong = document.getElementsByClassName("soluong");
+            const donGia = document.getElementsByClassName("dongia");
+            const thanhTien = document.getElementsByClassName("thanhtien");
+
+            let tong = 0;
+            for( let i = 0; i < donGia.length; i++)
+            {
+                thanhTien[i].innerHTML = donGia[i].innerHTML*soLuong[i].innerHTML;
+                tong = tong + parseInt (thanhTien[i].innerHTML);
+            }
+
+            document.getElementById("tong").innerHTML = tong;
+        </script>
+    </body>
+</html>
