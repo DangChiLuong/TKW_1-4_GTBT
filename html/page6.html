@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tính học phí</title>
+        <meta charset ="UTF - 8">
+        <link rel ="stylesheet" href ="../css/style6.css">
+    </head>
+
+    <body>
+        <div id ="container">
+            <h2>Tính học phí Đại học Trà Vinh </h2>
+            <input type="button" onclick="Add()" value="Thêm">
+        </div>
+
+        <script>
+            function Add()
+            {
+                const myRow = document.createElement("div");
+                myRow.setAttribute("class","Row");
+
+                const myText = document.createTextNode("HÍ HÍ");
+                myRow.appendChild(myText);
+                document.getElementById("container").appendChild(myRow);
+            }
+        </script>
+    </body>
+</html>
