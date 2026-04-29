@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang ="vi">
+    <body>
+         <script>
+            const myDiv = document.createElement("div");
+            myDiv.setAttribute ("class", "product-item");
+
+            const myImg = document.createElement("div");
+            myImg.setAttribute("class","product-image");
+
+            const image = document.createElement("img");
+            image.setAttribute("src", "../assets/images/Xe-VinF.png");
+            image.setAttribute("alt", "Vinfast-LUX A2.0");
+            myImg.appendChild(image);
+            myDiv.appendChild(myImg);
+
+            const myDiv2 = document.createElement("div");
+            myDiv2.setAttribute("class", "product-Info");
+
+            const p1 = document.createElement("p");
+            const text1 = document.createTextNode("Công nghệ Vin-Fast 2.0 Turbo");
+            
+            p1.appendChild(text1);
+            myDiv2.appendChild(p1);
+
+            const p2 = document.createElement("p");
+            const text2 = document.createTextNode("Giá: 1.200.000.000VND");
+            p2.appendChild(text2);
+            myDiv2.appendChild(p2);
+
+
+            const link = document.createElement("a");
+            link.setAttribute("href", "#");
+            const textLink = document.createTextNode("Xem chi tiết");
+            link.appendChild(textLink);
+            myDiv2.appendChild(link);
+
+            
+            document.body.appendChild(myDiv);
+            document.body.appendChild(myDiv2);
+        </script> 
+    </body>
+
+</html>
