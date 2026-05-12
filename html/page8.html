@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trang xe</title>
+</head>
 <body>
 
   <div id="product-list">
-    <button type="button" 
-            onclick="addCar('../assets/images/Xe-VinF.png', 'Công nghệ Vin-Fast 2.0 Turbo', '1.200.000.000 VND')">
-        Thêm
-    </button>
+    <h3>Thêm xe</h3>
 
-       <button type="button" 
-            onclick="loadAllproducts()">
-        Thêm mới
-    </button>
-</div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; align-items:center;">
+      <div>
+        <label>Ảnh (src):</label><br />
+        <input id="car-img" type="text" placeholder="../assets/images/Xe-VinF.png" style="width:320px;" />
+      </div>
 
-<script src="../js/product-list.js"></script>
-  
-        
+      <div>
+        <label>Tên xe:</label><br />
+        <input id="car-name" type="text" placeholder="Vin_Fast LUX 2.0" style="width:260px;" />
+      </div>
+
+      <div>
+        <label>Giá:</label><br />
+        <input id="car-price" type="text" placeholder="1.200.000.000 VND" style="width:220px;" />
+      </div>
+
+      <div style="margin-top:22px;">
+        <button type="button" onclick="addCarFromForm()">Thêm xe</button>
+      </div>
+    </div>
+
+    <!-- Vùng danh sách xe sẽ được add vào đây -->
+    <div id="cards"></div>
+  </div>
+
+  <script src="../js/product-list.js"></script>
 </body>
 </html>

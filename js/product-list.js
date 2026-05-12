@@ -16,6 +16,24 @@ function loadAllproducts()
 
 }
 
+function addCarFromForm() {
+    const img = document.getElementById('car-img')?.value.trim() || '';
+    const name = document.getElementById('car-name')?.value.trim() || '';
+    const price = document.getElementById('car-price')?.value.trim() || '';
+
+    if (!img || !name || !price) {
+        alert('Bạn cần nhập đủ 3 thông tin: Ảnh, Tên xe, Giá');
+        return;
+    }
+
+    addCar(img, name, price);
+
+    // Xoá form sau khi thêm
+    document.getElementById('car-img').value = '';
+    document.getElementById('car-name').value = '';
+    document.getElementById('car-price').value = '';
+}
+
 function addCar(img, nameCar, price) {
 
     // Tạo div chính
@@ -28,7 +46,7 @@ function addCar(img, nameCar, price) {
 
     const image = document.createElement("img");
     image.setAttribute("src", img);
-    image.setAttribute("alt", nameCar);           // ← Sửa lỗi ở đây
+    image.setAttribute("alt", nameCar);
     myImg.appendChild(image);
 
     myDiv.appendChild(myImg);
@@ -59,9 +77,8 @@ function addCar(img, nameCar, price) {
     // Ghép phần thông tin vào div chính
     myDiv.appendChild(myDiv2);
 
-
-
-    const productList = document.getElementById("product-list");
-        productList.appendChild(myDiv);
-        document.body.appendChild(myDiv);   // fallback
+    // Đưa card vào đúng vùng danh sách
+    const container = document.getElementById('cards') || document.getElementById('product-list');
+    if (container) container.appendChild(myDiv);
 }
+

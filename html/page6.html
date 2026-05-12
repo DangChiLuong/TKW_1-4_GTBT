@@ -1,27 +1,134 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Tính học phí</title>
-        <meta charset ="UTF - 8">
-        <link rel ="stylesheet" href ="../css/style6.css">
-    </head>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính học phí - Đại học Trà Vinh</title>
+    <link rel ="stylesheet" href = "../css/style6.css">
+</head>
+<body>
+    <div id="container">
+        <h2>Tính học phí Đại học Trà Vinh</h2>
 
-    <body>
-        <div id ="container">
-            <h2>Tính học phí Đại học Trà Vinh </h2>
-            <input type="button" onclick="Add()" value="Thêm">
+        <div class="actions">
+            <button onclick="Add()">Thêm môn học</button>
+            <button onclick="Calculate()">Tính học phí</button>
         </div>
 
-        <script>
-            function Add()
-            {
-                const myRow = document.createElement("div");
-                myRow.setAttribute("class","Row");
+        <div id="rows"></div>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
 
-                const myText = document.createTextNode("HÍ HÍ");
-                myRow.appendChild(myText);
-                document.getElementById("container").appendChild(myRow);
+    <script>
+        const PRICE_MAJOR = 650000;
+        const PRICE_NON_MAJOR = 570000;
+
+        function createSelectMajorType() {
+            const select = document.createElement("select");
+            const options = [
+                { value: "major", text: "Chuyên ngành" },
+                { value: "non", text: "Không chuyên ngành" }
+            ];
+            options.forEach(opt => {
+                const option = document.createElement("option");
+                option.value = opt.value;
+                option.textContent = opt.text;
+                select.appendChild(option);
+            });
+            return select;
+        }
+
+        function Add() {
+            const rows = document.getElementById("rows");
+
+            const row = document.createElement("div");
+            row.className = "Row";
+
+            // Tên môn
+            const inputName = document.createElement('input');
+            inputName.type = 'text';
+            inputName.placeholder = 'Tên môn học';
+            inputName.style.width = '280px';
+
+            // Loại chuyên ngành
+            const select = createSelectMajorType();
+
+            // Số tín chỉ
+            const inputCredits = document.createElement('input');
+            inputCredits.type = 'number';
+            inputCredits.min = '0';
+            inputCredits.placeholder = 'Tín chỉ';
+            inputCredits.style.width = '100px';
+
+            // Nút xóa
+            const btnRemove = document.createElement('button');
+            btnRemove.textContent = 'Xóa';
+            btnRemove.onclick = () => {
+                row.remove();
+                Calculate();
+            };
+
+            row.append(inputName, select, inputCredits, btnRemove);
+            rows.appendChild(row);
+        }
+
+        function Calculate() {
+            const rows = document.getElementById('rows');
+            const resultEl = document.getElementById('result');
+            const rowList = rows.getElementsByClassName('Row');
+
+            if (rowList.length === 0) {
+                resultEl.innerHTML = '<p style="color:red;">Chưa có môn học nào!</p>';
+                return;
             }
-        </script>
-    </body>
+
+            let total = 0;
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tên môn</th>
+                            <th>Loại</th>
+                            <th>Tín chỉ</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            Array.from(rowList).forEach(row => {
+                // Cách lấy chính xác theo thứ tự phần tử
+                const nameInput = row.querySelector('input[type="text"]');
+                const creditsInput = row.querySelector('input[type="number"]');
+                const select = row.querySelector('select');
+
+                const name = nameInput ? nameInput.value.trim() : 'Không có tên';
+                const credits = creditsInput ? parseInt(creditsInput.value) || 0 : 0;
+                const isMajor = select && select.value === "major";
+
+                const price = isMajor ? PRICE_MAJOR : PRICE_NON_MAJOR;
+                const money = credits * price;
+                total += money;
+
+                html += `
+                    <tr>
+                        <td>${name}</td>
+                        <td>${isMajor ? 'Chuyên ngành' : 'Không chuyên ngành'}</td>
+                        <td style="text-align:center;">${credits}</td>
+                        <td style="text-align:right;">${money.toLocaleString('vi-VN')} đ</td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+                <h3 style="color: #d32f2f; margin-top: 15px;">
+                    Tổng tiền: ${total.toLocaleString('vi-VN')} đ
+                </h3>
+            `;
+
+            resultEl.innerHTML = html;
+        }
+    </script>
+</body>
 </html>
